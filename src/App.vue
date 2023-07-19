@@ -1,17 +1,12 @@
+<script setup>
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue"
+</script>
+
 <template>
-  <v-app>
-    <NavBar />
-    <router-view />
-  </v-app>
+  <Navbar />
+  <router-view />
+  <!-- <Footer /> -->
 </template>
 
-<script>
-import NavBar from '@/components/NavBar.vue';
-
-export default {
-  name: 'App',
-  components: {
-    NavBar,
-  },
-};
-</script>
+<style></style>
