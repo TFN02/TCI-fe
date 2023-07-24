@@ -3,7 +3,7 @@ import { useRoute, useRouter } from 'vue-router';
 defineProps({
   show: Boolean,
 });
-// console.log("show",show);
+
 const route = useRoute();
 const router = useRouter();
 

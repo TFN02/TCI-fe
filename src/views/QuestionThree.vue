@@ -1,8 +1,26 @@
 <script setup>
+import { useRoute, useRouter } from "vue-router";
 import Card from "../components/Card.vue";
 import BackButton from "../components/BackButton.vue";
 import SubmitButton from "../components/SubmitButton.vue";
 import Footer from "../components/Footer.vue"
+
+const route = useRoute();
+const router = useRouter();
+
+const handleClick = () => {
+  if (route.path === "/question-three") {
+    localStorage.removeItem("selectedEmot");
+    localStorage.removeItem("bio");
+    router.push("/question-one");
+  }
+};
+
+const handleFollow = () => {
+  window.location.href = "https://teknologicakrainternasional.com/contact-us";
+}
+
+
 </script>
 <template>
   <div>
@@ -15,14 +33,14 @@ import Footer from "../components/Footer.vue"
       <div class="flex flex-col justify-center items-center">
         <img src="iconRate.svg" width="273" alt="" />
         <div class="flex flex-row gap-x-3">
-          <button class="btn btn-sm maybe">Maybe Later</button>
-          <button class="btn btn-sm follow">Follow Now</button>
+          <button class="btn btn-sm maybe" @click="handleClick">Maybe Later</button>
+          <button class="btn btn-sm follow" @click="handleFollow">Follow Now</button>
         </div>
       </div>
       <hr class="py-3 mt-6">
       <div class="card-actions justify-between">
         <BackButton />
-        <SubmitButton />
+        <SubmitButton :on-click="handleClick" />
       </div>
     </Card>
     <Footer />

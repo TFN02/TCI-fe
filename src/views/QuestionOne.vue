@@ -1,9 +1,21 @@
 <script setup>
+import { useRouter } from "vue-router";
 import Card from "../components/Card.vue";
 import inputEmot from "../components/inputEmot.vue";
 import BackButton from "../components/BackButton.vue";
 import SubmitButton from "../components/SubmitButton.vue";
 import Footer from "../components/Footer.vue"
+const router = useRouter();
+
+const handleClick = () => {
+
+  const anyEmotChecked = localStorage.getItem("selectedEmot")
+  if (anyEmotChecked !== null) {
+    router.push("/question-two");
+  }else{
+    alert('Wajib memilih satu pilihan');
+  }
+};
 </script>
 
 <template>
@@ -40,7 +52,7 @@ import Footer from "../components/Footer.vue"
       </div>
       <div class="card-actions justify-between">
       <BackButton :show="true" />
-      <SubmitButton />
+      <SubmitButton :on-click="handleClick" />
       </div>
     </Card>
     <Footer />

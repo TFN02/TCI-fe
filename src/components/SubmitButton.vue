@@ -1,28 +1,12 @@
 <script setup>
-import { useRoute, useRouter } from "vue-router";
+import { defineProps } from 'vue';
 
-defineProps({
-  show:Boolean,
-});
+const { show, onClick } = defineProps(['show', 'onClick']);
 
-// Dapatkan objek route dan router
-const route = useRoute();
-const router = useRouter();
-
-// Method untuk menentukan tujuan halaman berikutnya
-const handleClick = () => {
-  if (route.path === "/question-one") {
-    router.push("/question-two");
-  } else if (route.path === "/question-two") {
-    router.push("/question-three");
-  } else if (route.path === "/question-three") {
-    router.push("/question-one");
-  }
-};
 </script>
 
 <template>
-  <button @click="handleClick" :disabled="show" class="styleSubmit text-sm px-7 my-3">
+  <button @click="onClick" :disabled="show" class="styleSubmit text-sm px-7 my-3">
     Submit
   </button>
 </template>

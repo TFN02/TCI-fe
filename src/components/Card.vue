@@ -1,7 +1,7 @@
 <script setup>
 import { ref, readonly } from 'vue';
-
-defineProps({
+import { defineProps } from 'vue';
+const props = defineProps({
   title: String,
   subTitle: String,
   prog: String,
